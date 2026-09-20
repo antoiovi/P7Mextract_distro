@@ -163,7 +163,7 @@ The program writes extracted files and generated logs only inside the `converted
 
 For complete information about security and digital signature verification, see the sections above.
 
---
+---
 
 # 🇮🇹 Mini guida
 
