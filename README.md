@@ -114,6 +114,38 @@ ZIP archive paths are handled defensively to prevent unsafe paths from escaping 
 
 ---
 
+### ⚠️ Windows SmartScreen
+
+
+When running P7MExtract for the first time, Windows may display a **Microsoft Defender SmartScreen** warning stating that Windows prevented an unrecognized application from starting.
+
+This warning does **not necessarily mean that the application is malicious**.
+
+P7MExtract is currently distributed **without a Windows Authenticode digital signature**. As a result, Windows may not yet recognize the application or its publisher and may display a SmartScreen warning.
+
+If you downloaded P7MExtract from the official GitHub release, you can verify the integrity of the executable using the SHA-256 checksum provided in `SHA256.txt`.
+
+To verify the executable on Windows:
+
+```bat
+certutil -hashfile p7mextractv1.0.0.exe SHA256
+```
+
+Compare the resulting SHA-256 value with the value contained in `SHA256.txt`. The two values must match exactly.
+
+If Windows displays the SmartScreen warning:
+
+1. Click **More info**.
+2. Verify that you downloaded the executable from the official P7MExtract GitHub repository.
+3. Verify the SHA-256 checksum.
+4. If you trust the downloaded file, click **Run anyway**.
+
+The SmartScreen warning is related to Windows application reputation and publisher verification. It is separate from the SHA-256 integrity check.
+
+---
+
+
+
 ### How to use
 
 Place the executable in a directory containing the files to process.
@@ -326,6 +358,36 @@ Il programma:
 I percorsi contenuti negli archivi ZIP vengono controllati per evitare che un archivio possa estrarre file al di fuori della directory prevista.
 
 ---
+
+### ⚠️ Windows SmartScreen
+
+Al primo avvio di P7MExtract, Windows potrebbe visualizzare un avviso di **Microsoft Defender SmartScreen** indicando che Windows ha impedito l'avvio di un'applicazione non riconosciuta.
+
+Questo avviso **non significa necessariamente che l'applicazione sia dannosa**.
+
+Attualmente P7MExtract viene distribuito **senza una firma digitale Windows Authenticode**. Di conseguenza, Windows potrebbe non riconoscere ancora l'applicazione o il relativo autore e potrebbe quindi visualizzare un avviso SmartScreen.
+
+Se hai scaricato P7MExtract dalla release ufficiale GitHub, puoi verificare l'integrità dell'eseguibile utilizzando il checksum SHA-256 fornito nel file `SHA256.txt`.
+
+Per verificare l'eseguibile in Windows:
+
+```bat
+certutil -hashfile p7mextractv1.0.0.exe SHA256
+```
+
+Confronta il valore SHA-256 ottenuto con quello contenuto in `SHA256.txt`. I due valori devono coincidere esattamente.
+
+Se Windows visualizza l'avviso SmartScreen:
+
+1. Clicca su **Ulteriori informazioni**.
+2. Verifica di aver scaricato l'eseguibile dalla repository GitHub ufficiale di P7MExtract.
+3. Verifica il checksum SHA-256.
+4. Se il file è stato scaricato dalla fonte ufficiale e il checksum corrisponde, clicca su **Esegui comunque**.
+
+L'avviso SmartScreen riguarda la reputazione dell'applicazione e la verifica dell'autore da parte di Windows. È indipendente dalla verifica dell'integrità tramite SHA-256.
+
+
+
 
 ## Utilizzo
 
