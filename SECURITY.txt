@@ -1,0 +1,96 @@
+
+# P7MEXTRACT - Security Information
+
+P7MExtract is designed exclusively for extracting documents contained
+in CAdES / CMS / PKCS#7 digitally signed files.
+
+## Security characteristics
+
+The program:
+
+* cryptographically verifies CAdES / CMS / PKCS#7 digital signatures;
+* does not execute extracted documents;
+* does not modify the original P7M files;
+* does not modify the Windows Registry;
+* does not start external processes;
+* does not require an Internet connection;
+* writes extracted documents and generated log files only inside the
+  "converted" directory;
+* does not install additional software.
+
+## Digital signature verification
+
+P7MExtract performs cryptographic verification of the digital
+signature contained in the P7M file.
+
+The verification performed by the program does not constitute a
+complete validation of the certificate chain, revocation status,
+OCSP / CRL status, timestamp validity, or other legal or regulatory
+requirements that may apply to a digital signature.
+
+Therefore, "VALID (cryptographic)" indicates that the cryptographic
+signature verification was successful. It should not be interpreted
+as a complete legal or certificate validation.
+
+## Original files
+
+P7MExtract does not modify the original P7M files.
+
+Extracted documents are written to the "converted" directory.
+Existing output files are not overwritten; when necessary, a new
+filename is generated.
+
+## Internet access
+
+P7MExtract does not require an Internet connection to perform its
+operations.
+
+The program does not contact external servers for document
+extraction or signature verification.
+
+## Windows Security / SmartScreen
+
+P7MExtract is currently distributed without a Windows Authenticode
+digital signature.
+
+Windows Defender SmartScreen may therefore display a warning when
+the program is executed for the first time.
+
+Users should download the executable only from the official GitHub
+release and verify its SHA-256 checksum against the SHA256.txt file
+provided with the release.
+
+SHA-256 verification can be performed from a Windows command prompt
+using:
+
+certutil -hashfile p7mextractv1.0.0.exe SHA256
+
+The calculated hash must exactly match the value published in
+SHA256.txt.
+
+## Important
+
+A SHA-256 checksum verifies the integrity of the downloaded file
+against the published checksum. It does not by itself establish the
+identity of the publisher.
+
+For this reason, the executable and the corresponding SHA256.txt
+file should be obtained from the official P7MExtract release source.
+
+## Third-party components
+
+P7MExtract uses third-party open-source components, including
+OpenSSL and libarchive.
+
+See THIRD-PARTY-NOTICES.txt for information about the applicable
+third-party licenses and copyright notices.
+
+## Reporting security issues
+
+If you discover a potential security issue in P7MExtract, please
+report it to the project maintainer before publicly disclosing the
+issue.
+
+Project maintainer:
+Antonello Iovino antoiovi@antoiovi.com
+
