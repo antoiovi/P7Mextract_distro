@@ -2,512 +2,319 @@
 
 **CAdES / PKCS#7 P7M document extractor**
 
-P7MExtract is a Windows command-line utility designed to extract the original documents contained in digitally signed `.p7m` files.
+## ⬇️ Download
 
-It can also process `.p7m` files contained inside ZIP archives.
+- [**Download P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
+- [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/SHA256.txt)
 
----
+The release contains:
 
-## 🇬🇧 English
-
-## Download
-
-### Latest Release
-
-[**Download P7MExtract v1.0.0 for Windows**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/p7mextractv1.0.0.exe)
-
-SHA-256:
-
-`4c476854a99a48c077128bd47d36be8c7be8370694b0aa67c8acf1319239de0f6`
-
-For complete release information and the SHA-256 file:
-
-[**P7MExtract v1.0.0 Release**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
-
-### Description
-
-**P7MExtract** extracts documents encapsulated in CAdES / PKCS#7 (`.p7m`) containers.
-
-The program automatically detects the type of the extracted document and saves it with the appropriate extension.
-
-Supported document types include:
-
-* PDF
-* XML
-* HTML
-* TXT
-* ZIP
-* OLE documents
-* Binary files
-
-P7M files contained inside ZIP archives are also processed automatically.
-
-The original input files are **never modified**.
+* `p7mextractv1.0.0.exe` — the P7MExtract application
+* `SHA256.txt` — SHA-256 checksum for the executable
 
 ---
 
-### Digital Signature Verification
+# 🇬🇧 Quick Guide
 
-For each P7M file, P7MExtract performs a **cryptographic verification of the CAdES / PKCS#7 digital signature**.
+## 1. Download
 
-The program reports information such as:
+Open the official release:
 
-* signer
-* signing certificate
-* certification authority, when available
-* signing date, when available
-* signature algorithm
-* cryptographic signature validity
+[**P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
 
-The reported signature status refers to the **cryptographic verification of the CMS/PKCS#7 signature**.
+Download:
 
-It does not by itself constitute a complete validation of the certificate chain, revocation status, OCSP/CRL status, or qualified-signature legal status.
+```text
+p7mextractv1.0.0.exe
+```
 
----
+The `SHA256.txt` file can be used to verify the integrity of the downloaded executable.
 
-### ZIP Archives
-
-When a ZIP archive contains P7M files, the extracted documents are placed in a directory named after the ZIP archive.
+## 2. Put the executable in the folder containing your documents
 
 For example:
 
 ```text
-invoice_package.zip
-```
-
-produces:
-
-```text
-converted/
-└── invoice_package/
-    ├── invoice001.pdf
-    ├── invoice002.pdf
-    └── invoice003.xml
-```
-
-Standalone P7M files are extracted directly into:
-
-```text
-converted/
-```
-
----
-
-### Security
-
-P7MExtract is designed exclusively for extracting documents from CAdES / PKCS#7 containers.
-
-The program:
-
-* verifies CAdES / PKCS#7 digital signatures cryptographically;
-* does not execute extracted documents;
-* does not launch extracted files;
-* does not install additional software;
-* does not modify the Windows Registry;
-* does not start external applications;
-* does not require an Internet connection;
-* does not modify the original P7M files;
-* writes extracted files to the `converted` directory;
-* does not overwrite existing extracted files.
-
-ZIP archive paths are handled defensively to prevent unsafe paths from escaping the extraction directory.
-
----
-
-### ⚠️ Windows SmartScreen
-
-
-When running P7MExtract for the first time, Windows may display a **Microsoft Defender SmartScreen** warning stating that Windows prevented an unrecognized application from starting.
-
-This warning does **not necessarily mean that the application is malicious**.
-
-P7MExtract is currently distributed **without a Windows Authenticode digital signature**. As a result, Windows may not yet recognize the application or its publisher and may display a SmartScreen warning.
-
-If you downloaded P7MExtract from the official GitHub release, you can verify the integrity of the executable using the SHA-256 checksum provided in `SHA256.txt`.
-
-To verify the executable on Windows:
-
-```bat
-certutil -hashfile p7mextractv1.0.0.exe SHA256
-```
-
-Compare the resulting SHA-256 value with the value contained in `SHA256.txt`. The two values must match exactly.
-
-If Windows displays the SmartScreen warning:
-
-1. Click **More info**.
-2. Verify that you downloaded the executable from the official P7MExtract GitHub repository.
-3. Verify the SHA-256 checksum.
-4. If you trust the downloaded file, click **Run anyway**.
-
-The SmartScreen warning is related to Windows application reputation and publisher verification. It is separate from the SHA-256 integrity check.
-
----
-
-
-
-### How to use
-
-Place the executable in a directory containing the files to process.
-
-Example:
-
-```text
-P7MExtract/
-├── p7mextract.exe
+MyDocuments/
+├── p7mextractv1.0.0.exe
 ├── invoice.pdf.p7m
-├── contract.xml.p7m
+├── contract.pdf.p7m
 └── documents.zip
 ```
 
-Run the executable.
+## 3. Run P7MExtract
 
-The program automatically searches the current directory for:
+Double-click:
+
+```text
+p7mextractv1.0.0.exe
+```
+
+P7MExtract automatically searches the current directory for:
 
 ```text
 *.p7m
 *.zip
 ```
 
-Extracted documents are saved in:
+## 4. Extracted documents
+
+The extracted documents are saved automatically in:
 
 ```text
 converted/
 ```
 
-The program displays the extraction and signature verification results in the console.
-
-A log file is also generated automatically, for example:
+For example:
 
 ```text
-estrazione_2026_09_20_20_15_32_417.txt
+MyDocuments/
+├── p7mextractv1.0.0.exe
+├── invoice.pdf.p7m
+├── documents.zip
+└── converted/
+    ├── invoice.pdf
+    └── documents/
+        ├── contract.pdf
+        └── report.xml
+```
+
+Existing files are not overwritten.
+
+## 5. Digital signature verification
+
+For every P7M file, P7MExtract performs a cryptographic verification of the CAdES / PKCS#7 digital signature.
+
+The program displays information such as:
+
+* Signer
+* Certificate
+* Certification Authority
+* Signing Date
+* Signature Algorithm
+* Cryptographic Signature Validity
+
+The original P7M file is never modified.
+
+---
+
+## 6. ZIP files
+
+P7MExtract can also process P7M files contained inside ZIP archives.
+
+For example:
+
+```text
+documents.zip
+├── invoice001.pdf.p7m
+├── invoice002.pdf.p7m
+└── report.xml.p7m
+```
+
+will produce:
+
+```text
+converted/
+└── documents/
+    ├── invoice001.pdf
+    ├── invoice002.pdf
+    └── report.xml
 ```
 
 ---
 
-### SHA-256 Verification
+## 7. Windows SmartScreen
 
-A `SHA256.txt` file is distributed separately with the executable.
+When running P7MExtract for the first time, Windows may display a **Microsoft Defender SmartScreen** warning because the application is currently not signed with a Windows Authenticode certificate.
 
-It contains the SHA-256 checksum of the exact executable distributed with the release.
+If you downloaded the executable from the official GitHub release and verified its SHA-256 checksum, Windows may be showing the warning because the application is not yet recognized by SmartScreen.
 
-Example:
+Click:
 
-```text
-8F4A2C...D91E  p7mextract_alpha_v1.0.0_467090b.exe
-```
+**More info → Run anyway**
 
-You can verify the checksum on Windows using:
+For more information, see the **Windows SmartScreen** section below.
 
-```bat
-certutil -hashfile p7mextract_alpha_v1.0.0_467090b.exe SHA256
-```
+---
 
-Compare the resulting hash with the value contained in:
+## 8. SHA-256 verification
+
+The release includes:
 
 ```text
 SHA256.txt
 ```
 
-The hash must match exactly.
-
-### Important
-
-The SHA-256 file is an **integrity verification mechanism**.
-
-It does not provide authentication if both the executable and the checksum file have been obtained from an untrusted or compromised source.
-
-For this reason, obtain the executable and `SHA256.txt` from the official project/release repository.
-
----
-
-### Command-line options
-
-Display the program version:
+To verify the downloaded executable on Windows, open a Command Prompt in the directory containing the EXE and run:
 
 ```bat
-p7mextract.exe --version
+certutil -hashfile p7mextractv1.0.0.exe SHA256
 ```
 
-The version information includes:
+Compare the resulting value with the value contained in `SHA256.txt`.
 
-* version
-* Git branch
-* Git commit
-
+The values must match exactly.
 ---
+## Security
 
-### Output
+P7MExtract does not execute extracted documents, does not modify the original P7M files, does not modify the Windows Registry, and does not require an Internet connection.
 
-At the end of the execution, the program reports information such as:
+The program writes extracted files and generated logs only inside the `converted` directory.
+
+For complete information about security and digital signature verification, see the sections above.
+
+--
+
+# 🇮🇹 Mini guida
+
+## 1. Scaricare il programma
+
+Aprire la release ufficiale:
+
+- [**Download P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
+
+Scaricare:
 
 ```text
-RESULT
-
-ZIP archives processed :
-P7M files processed    :
-P7M successful         :
-P7M errors             :
-Output directory       :
+p7mextractv1.0.0.exe
 ```
 
----
+Il file `SHA256.txt` può essere utilizzato per verificare l'integrità dell'eseguibile.
 
-### License
-
-See the `LICENSE` file included in the project repository.
-
----
-
-### Author
-
-**Antonello Iovino**
-
-2026
-
----
-
-# 🇮🇹 Italiano
-
-## Descrizione
-
-**P7MExtract** è un'applicazione per Windows progettata per estrarre i documenti originali contenuti nei file `.p7m` firmati digitalmente.
-
-Il programma è in grado di elaborare anche i file `.p7m` contenuti all'interno di archivi ZIP.
-
-Il tipo di documento estratto viene riconosciuto automaticamente e il file viene salvato con la relativa estensione.
-
-Sono supportati, tra gli altri:
-
-* PDF
-* XML
-* HTML
-* TXT
-* ZIP
-* documenti OLE
-* file binari
-
-I file originali non vengono mai modificati.
-
----
-
-## Verifica della firma digitale
-
-Per ogni file P7M, P7MExtract esegue la **verifica crittografica della firma digitale CAdES / PKCS#7**.
-
-Quando disponibili, vengono visualizzate informazioni quali:
-
-* firmatario
-* certificato di firma
-* autorità certificatrice
-* data della firma
-* algoritmo utilizzato
-* validità crittografica della firma
-
-Lo stato indicato riguarda la **verifica crittografica della firma CMS/PKCS#7**.
-
-La verifica effettuata dal programma non costituisce automaticamente una validazione completa della catena dei certificati, dello stato di revoca, dei servizi OCSP/CRL o della validità giuridica di una firma qualificata.
-
----
-
-## Archivi ZIP
-
-Se un archivio ZIP contiene file P7M, i documenti estratti vengono inseriti in una directory con il nome dell'archivio ZIP.
+## 2. Mettere l'eseguibile nella directory dei documenti
 
 Ad esempio:
 
 ```text
-pacchetto_fatture.zip
+Documenti/
+├── p7mextractv1.0.0.exe
+├── fattura.pdf.p7m
+├── contratto.pdf.p7m
+└── documenti.zip
+```
+
+## 3. Avviare P7MExtract
+
+Fare doppio clic su:
+
+```text
+p7mextractv1.0.0.exe
+```
+
+P7MExtract ricerca automaticamente nella directory corrente:
+
+```text
+*.p7m
+*.zip
+```
+
+## 4. Documenti estratti
+
+I documenti vengono salvati automaticamente nella directory:
+
+```text
+converted/
+```
+
+Ad esempio:
+
+```text
+Documenti/
+├── p7mextractv1.0.0.exe
+├── fattura.pdf.p7m
+├── documenti.zip
+└── converted/
+    ├── fattura.pdf
+    └── documenti/
+        ├── contratto.pdf
+        └── rapporto.xml
+```
+
+I file esistenti non vengono sovrascritti.
+
+## 5. Verifica della firma digitale
+
+Per ogni file P7M, P7MExtract esegue la verifica crittografica della firma digitale CAdES / PKCS#7.
+
+Vengono visualizzate, quando disponibili:
+
+* informazioni sul firmatario;
+* certificato;
+* autorità certificatrice;
+* data della firma;
+* algoritmo della firma;
+* validità crittografica della firma.
+
+Il file P7M originale non viene modificato.
+
+---
+
+## 6. File ZIP
+
+P7MExtract può elaborare anche i file P7M contenuti all'interno di archivi ZIP.
+
+Ad esempio:
+
+```text
+documenti.zip
+├── fattura001.pdf.p7m
+├── fattura002.pdf.p7m
+└── rapporto.xml.p7m
 ```
 
 produce:
 
 ```text
 converted/
-└── pacchetto_fatture/
+└── documenti/
     ├── fattura001.pdf
     ├── fattura002.pdf
-    └── fattura003.xml
+    └── rapporto.xml
 ```
 
-I file P7M presenti direttamente nella directory vengono invece estratti direttamente in:
+---
+
+## 7. Windows SmartScreen
+
+Al primo avvio, Windows potrebbe visualizzare un avviso di **Microsoft Defender SmartScreen**, poiché l'applicazione attualmente non dispone di una firma digitale Windows Authenticode.
+
+Se l'eseguibile è stato scaricato dalla release ufficiale GitHub e il suo checksum SHA-256 è stato verificato, l'avviso può essere dovuto semplicemente al fatto che Windows non riconosce ancora l'applicazione.
+
+Cliccare:
+
+**Ulteriori informazioni → Esegui comunque**
+
+Per maggiori informazioni, consultare la sezione **Windows SmartScreen**.
+
+---
+
+## 8. Verifica SHA-256
+
+La release contiene il file:
+
+- [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/SHA256.txt)
 
 ```text
-converted/
+SHA256.txt
 ```
 
----
-
-## Sicurezza
-
-P7MExtract è progettato esclusivamente per l'estrazione di documenti contenuti in container CAdES / PKCS#7.
-
-Il programma:
-
-* verifica crittograficamente le firme digitali CAdES / PKCS#7;
-* non esegue i documenti estratti;
-* non avvia i file estratti;
-* non installa software aggiuntivo;
-* non modifica il Registro di Windows;
-* non avvia applicazioni esterne;
-* non richiede una connessione Internet;
-* non modifica i file P7M originali;
-* salva i documenti estratti nella directory `converted`;
-* non sovrascrive i file già esistenti.
-
-I percorsi contenuti negli archivi ZIP vengono controllati per evitare che un archivio possa estrarre file al di fuori della directory prevista.
-
----
-
-### ⚠️ Windows SmartScreen
-
-Al primo avvio di P7MExtract, Windows potrebbe visualizzare un avviso di **Microsoft Defender SmartScreen** indicando che Windows ha impedito l'avvio di un'applicazione non riconosciuta.
-
-Questo avviso **non significa necessariamente che l'applicazione sia dannosa**.
-
-Attualmente P7MExtract viene distribuito **senza una firma digitale Windows Authenticode**. Di conseguenza, Windows potrebbe non riconoscere ancora l'applicazione o il relativo autore e potrebbe quindi visualizzare un avviso SmartScreen.
-
-Se hai scaricato P7MExtract dalla release ufficiale GitHub, puoi verificare l'integrità dell'eseguibile utilizzando il checksum SHA-256 fornito nel file `SHA256.txt`.
-
-Per verificare l'eseguibile in Windows:
+Per verificare l'eseguibile in Windows, aprire il Prompt dei comandi nella directory che contiene l'EXE ed eseguire:
 
 ```bat
 certutil -hashfile p7mextractv1.0.0.exe SHA256
 ```
 
-Confronta il valore SHA-256 ottenuto con quello contenuto in `SHA256.txt`. I due valori devono coincidere esattamente.
-
-Se Windows visualizza l'avviso SmartScreen:
-
-1. Clicca su **Ulteriori informazioni**.
-2. Verifica di aver scaricato l'eseguibile dalla repository GitHub ufficiale di P7MExtract.
-3. Verifica il checksum SHA-256.
-4. Se il file è stato scaricato dalla fonte ufficiale e il checksum corrisponde, clicca su **Esegui comunque**.
-
-L'avviso SmartScreen riguarda la reputazione dell'applicazione e la verifica dell'autore da parte di Windows. È indipendente dalla verifica dell'integrità tramite SHA-256.
-
-
-
-
-## Utilizzo
-
-Inserire l'eseguibile nella directory contenente i file da elaborare.
-
-Ad esempio:
-
-```text
-P7MExtract/
-├── p7mextract.exe
-├── fattura.pdf.p7m
-├── contratto.xml.p7m
-└── documenti.zip
-```
-
-Avviare l'eseguibile.
-
-Il programma ricerca automaticamente nella directory corrente:
-
-```text
-*.p7m
-*.zip
-```
-
-I documenti estratti vengono salvati nella directory:
-
-```text
-converted/
-```
-
-I risultati dell'estrazione e della verifica delle firme vengono visualizzati nella console.
-
-Il programma genera inoltre automaticamente un file di log, ad esempio:
-
-```text
-estrazione_2026_09_20_20_15_32_417.txt
-```
-
----
-
-## Verifica SHA-256
-
-Insieme all'eseguibile viene distribuito separatamente il file:
-
-```text
-SHA256.txt
-```
-
-Il file contiene il checksum SHA-256 dell'esatto eseguibile distribuito.
-
-Esempio:
-
-```text
-8F4A2C...D91E  p7mextract_alpha_v1.0.0_467090b.exe
-```
-
-Su Windows è possibile verificare il checksum con:
-
-```bat
-certutil -hashfile p7mextract_alpha_v1.0.0_467090b.exe SHA256
-```
-
-Il valore ottenuto deve essere confrontato con quello contenuto in:
-
-```text
-SHA256.txt
-```
+Confrontare il valore ottenuto con quello contenuto in `SHA256.txt`.
 
 I due valori devono coincidere esattamente.
 
-### Importante
-
-Il file SHA-256 permette di verificare **l'integrità** dell'eseguibile.
-
-Non garantisce invece l'autenticità se sia l'eseguibile sia il file `SHA256.txt` sono stati ottenuti da una fonte non affidabile o compromessa.
-
-È quindi consigliato scaricare entrambi dalla repository ufficiale del progetto o dalla relativa release ufficiale.
-
 ---
 
-## Opzioni da linea di comando
+## Sicurezza
 
-Per visualizzare la versione del programma:
+P7MExtract non esegue i documenti estratti, non modifica i file P7M originali, non modifica il Registro di sistema di Windows e non richiede una connessione a Internet.
 
-```bat
-p7mextract.exe --version
-```
+Il programma scrive i file estratti e i log generati esclusivamente all'interno della cartella `converted`.
 
-Le informazioni visualizzate comprendono:
+Per informazioni complete sulla sicurezza e sulla verifica delle firme digitali, consulta le sezioni precedenti.
 
-* versione
-* branch Git
-* commit Git
-
----
-
-## Risultato dell'elaborazione
-
-Al termine dell'elaborazione il programma visualizza, tra le altre, le seguenti informazioni:
-
-```text
-RESULT
-
-ZIP archives processed :
-P7M files processed    :
-P7M successful         :
-P7M errors             :
-Output directory       :
-```
-
----
-
-## Licenza
-
-Consultare il file `LICENSE` presente nella repository del progetto.
-
----
-
-## Autore
-
-**Antonello Iovino**
-
-2026
