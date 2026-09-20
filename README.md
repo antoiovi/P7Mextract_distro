@@ -164,6 +164,13 @@ The program writes extracted files and generated logs only inside the `converted
 For complete information about security and digital signature verification, see the sections above.
 
 ---
+## Third-Party Software
+
+P7MExtract uses OpenSSL and libarchive.
+
+ See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
+
+---
 
 # 🇮🇹 Mini guida
 
@@ -318,3 +325,8 @@ Il programma scrive i file estratti e i log generati esclusivamente all'interno 
 
 Per informazioni complete sulla sicurezza e sulla verifica delle firme digitali, consulta le sezioni precedenti.
 
+
+## Third-Party Software
+
+P7MExtract uses OpenSSL and libarchive.
+See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
