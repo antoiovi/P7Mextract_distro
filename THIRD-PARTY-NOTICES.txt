@@ -1,0 +1,30 @@
+# P7MEXTRACT - Third Party Notices
+
+## OpenSSL
+
+Used for cryptographic operations and CAdES / CMS / PKCS#7
+digital signature processing.
+
+OpenSSL retains its own license, copyrights, and applicable
+license notices.
+
+License: Apache License 2.0
+https://www.apache.org/licenses/LICENSE-2.0
+
+## libarchive
+
+Used for reading and processing ZIP archives.
+
+libarchive retains its own license, copyrights, and applicable
+license notices.
+
+License: BSD 2-Clause License
+https://opensource.org/license/bsd-2-clause
+
+## Note
+
+The licenses of third-party libraries are not replaced by the
+MIT license of the original P7MEXTRACT code.
+
+Third-party components remain subject to their respective licenses
+and terms of use.
