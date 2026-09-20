@@ -10,6 +10,20 @@ It can also process `.p7m` files contained inside ZIP archives.
 
 ## 🇬🇧 English
 
+## Download
+
+### Latest Release
+
+[**Download P7MExtract v1.0.0 for Windows**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/p7mextractv1.0.0.exe)
+
+SHA-256:
+
+`4c476854a99a48c077128bd47d36be8c7be8370694b0aa67c8acf1319239de0f6`
+
+For complete release information and the SHA-256 file:
+
+[**P7MExtract v1.0.0 Release**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
+
 ### Description
 
 **P7MExtract** extracts documents encapsulated in CAdES / PKCS#7 (`.p7m`) containers.
