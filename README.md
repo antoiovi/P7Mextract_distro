@@ -5,7 +5,8 @@
 ## ⬇️ Download
 
 * [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/p7mextractv1.0.1.exe)
-* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.1/SHA256.txt)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/SHA256.txt)
+
 
 The release contains:
 
