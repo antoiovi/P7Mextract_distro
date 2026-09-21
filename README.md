@@ -21,7 +21,12 @@ The release contains:
 
 Open the official release:
 
-[**P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.1)
+* [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/p7mextractv1.0.1.exe)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/SHA256.txt)
+
+
+
+
 
 Download:
 
@@ -141,7 +146,7 @@ For more information, see the **Windows SmartScreen** section below.
 ## 8. SHA-256 verification
 
 The release includes:
-
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/SHA256.txt)
 ```text
 SHA256.txt
 ```
@@ -182,7 +187,10 @@ See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
 
 Aprire la release ufficiale:
 
-* [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.1)
+* [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/p7mextractv1.0.1.exe)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/SHA256.txt)
+
+
 
 Scaricare:
 
@@ -303,7 +311,7 @@ Per maggiori informazioni, consultare la sezione **Windows SmartScreen**.
 
 La release contiene il file:
 
-* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.1/SHA256.txt)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.01/SHA256.txt)
 
 ```text
 SHA256.txt
