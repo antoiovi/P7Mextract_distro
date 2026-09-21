@@ -4,12 +4,12 @@
 
 ## ⬇️ Download
 
-- [**Download P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
-- [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/SHA256.txt)
+* [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.1)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.1/SHA256.txt)
 
 The release contains:
 
-* `p7mextractv1.0.0.exe` — the P7MExtract application
+* `p7mextractv1.0.1.exe` — the P7MExtract application
 * `SHA256.txt` — SHA-256 checksum for the executable
 
 ---
@@ -20,12 +20,12 @@ The release contains:
 
 Open the official release:
 
-[**P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
+[**P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.1)
 
 Download:
 
 ```text
-p7mextractv1.0.0.exe
+p7mextractv1.0.1.exe
 ```
 
 The `SHA256.txt` file can be used to verify the integrity of the downloaded executable.
@@ -36,7 +36,7 @@ For example:
 
 ```text
 MyDocuments/
-├── p7mextractv1.0.0.exe
+├── p7mextractv1.0.1.exe
 ├── invoice.pdf.p7m
 ├── contract.pdf.p7m
 └── documents.zip
@@ -47,7 +47,7 @@ MyDocuments/
 Double-click:
 
 ```text
-p7mextractv1.0.0.exe
+p7mextractv1.0.1.exe
 ```
 
 P7MExtract automatically searches the current directory for:
@@ -69,7 +69,7 @@ For example:
 
 ```text
 MyDocuments/
-├── p7mextractv1.0.0.exe
+├── p7mextractv1.0.1.exe
 ├── invoice.pdf.p7m
 ├── documents.zip
 └── converted/
@@ -148,13 +148,15 @@ SHA256.txt
 To verify the downloaded executable on Windows, open a Command Prompt in the directory containing the EXE and run:
 
 ```bat
-certutil -hashfile p7mextractv1.0.0.exe SHA256
+certutil -hashfile p7mextractv1.0.1.exe SHA256
 ```
 
 Compare the resulting value with the value contained in `SHA256.txt`.
 
 The values must match exactly.
+
 ---
+
 ## Security
 
 P7MExtract does not execute extracted documents, does not modify the original P7M files, does not modify the Windows Registry, and does not require an Internet connection.
@@ -164,11 +166,12 @@ The program writes extracted files and generated logs only inside the `converted
 For complete information about security and digital signature verification, see the sections above.
 
 ---
+
 ## Third-Party Software
 
 P7MExtract uses OpenSSL and libarchive.
 
- See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
+See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
 
 ---
 
@@ -178,12 +181,12 @@ P7MExtract uses OpenSSL and libarchive.
 
 Aprire la release ufficiale:
 
-- [**Download P7MExtract v1.0.0**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.0)
+* [**Download P7MExtract v1.0.1**](https://github.com/antoiovi/P7Mextract_distro/releases/tag/v1.0.1)
 
 Scaricare:
 
 ```text
-p7mextractv1.0.0.exe
+p7mextractv1.0.1.exe
 ```
 
 Il file `SHA256.txt` può essere utilizzato per verificare l'integrità dell'eseguibile.
@@ -194,7 +197,7 @@ Ad esempio:
 
 ```text
 Documenti/
-├── p7mextractv1.0.0.exe
+├── p7mextractv1.0.1.exe
 ├── fattura.pdf.p7m
 ├── contratto.pdf.p7m
 └── documenti.zip
@@ -205,7 +208,7 @@ Documenti/
 Fare doppio clic su:
 
 ```text
-p7mextractv1.0.0.exe
+p7mextractv1.0.1.exe
 ```
 
 P7MExtract ricerca automaticamente nella directory corrente:
@@ -227,7 +230,7 @@ Ad esempio:
 
 ```text
 Documenti/
-├── p7mextractv1.0.0.exe
+├── p7mextractv1.0.1.exe
 ├── fattura.pdf.p7m
 ├── documenti.zip
 └── converted/
@@ -299,7 +302,7 @@ Per maggiori informazioni, consultare la sezione **Windows SmartScreen**.
 
 La release contiene il file:
 
-- [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.0/SHA256.txt)
+* [**Download SHA256.txt**](https://github.com/antoiovi/P7Mextract_distro/releases/download/v1.0.1/SHA256.txt)
 
 ```text
 SHA256.txt
@@ -308,7 +311,7 @@ SHA256.txt
 Per verificare l'eseguibile in Windows, aprire il Prompt dei comandi nella directory che contiene l'EXE ed eseguire:
 
 ```bat
-certutil -hashfile p7mextractv1.0.0.exe SHA256
+certutil -hashfile p7mextractv1.0.1.exe SHA256
 ```
 
 Confrontare il valore ottenuto con quello contenuto in `SHA256.txt`.
@@ -325,8 +328,10 @@ Il programma scrive i file estratti e i log generati esclusivamente all'interno 
 
 Per informazioni complete sulla sicurezza e sulla verifica delle firme digitali, consulta le sezioni precedenti.
 
+---
 
 ## Third-Party Software
 
 P7MExtract uses OpenSSL and libarchive.
+
 See [THIRD-PARTY-NOTICES.txt](THIRD-PARTY-NOTICES.txt) for details.
